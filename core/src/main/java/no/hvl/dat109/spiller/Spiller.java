@@ -1,4 +1,4 @@
-package no.hvl.dat109.Spiller;
+package no.hvl.dat109.spiller;
 
 import no.hvl.dat109.Terning;
 import no.hvl.dat109.brett.Brett;

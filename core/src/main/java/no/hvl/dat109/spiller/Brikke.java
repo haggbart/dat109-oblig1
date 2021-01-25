@@ -1,4 +1,4 @@
-package no.hvl.dat109.Spiller;
+package no.hvl.dat109.spiller;
 
 public interface Brikke {
 
