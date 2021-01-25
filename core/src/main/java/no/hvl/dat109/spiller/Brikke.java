@@ -4,5 +4,5 @@ public interface Brikke {
 
     int getPosisjon();
 
-    void setPosisjon();
+    void setPosisjon(int posisjon);
 }

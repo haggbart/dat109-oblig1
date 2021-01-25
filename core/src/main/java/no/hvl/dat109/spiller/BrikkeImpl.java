@@ -10,7 +10,7 @@ public class BrikkeImpl implements Brikke {
     }
 
     @Override
-    public void setPosisjon() {
+    public void setPosisjon(int posisjon) {
 
     }
 }
