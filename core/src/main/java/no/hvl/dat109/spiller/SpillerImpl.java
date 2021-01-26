@@ -19,6 +19,7 @@ public class SpillerImpl implements Spiller {
     }
 
     //Oppdaterer posisjon på brikken og returnerer nye ruten
+
     private Rute flyttBrikke(int posisjon) {
         log.debug("{} flytter brikke", this);
         brikke.setPosisjon(posisjon);
@@ -43,5 +44,10 @@ public class SpillerImpl implements Spiller {
         }
 
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return hashCode() + "";
     }
 }
