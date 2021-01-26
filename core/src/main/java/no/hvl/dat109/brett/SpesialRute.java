@@ -4,7 +4,7 @@ public interface SpesialRute extends Rute {
 
     enum Type {
         STIGE,
-        SLANGE
+        SLANGE,
     }
 
     Type getType();
