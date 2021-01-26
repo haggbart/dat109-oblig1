@@ -10,7 +10,7 @@ public class BrikkeImpl implements Brikke {
 
     private static final Logger log = LoggerFactory.getLogger(Brikke.class);
 
-    private Brett brett;
+    private final Brett brett;
 
     private int posisjon;
 
