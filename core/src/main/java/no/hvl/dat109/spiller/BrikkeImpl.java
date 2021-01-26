@@ -6,11 +6,15 @@ public class BrikkeImpl implements Brikke {
 
     @Override
     public int getPosisjon() {
-        return 0;
+
+    return posisjon;
+
     }
 
     @Override
     public void setPosisjon(int posisjon) {
+
+        this.posisjon = posisjon;
 
     }
 }
