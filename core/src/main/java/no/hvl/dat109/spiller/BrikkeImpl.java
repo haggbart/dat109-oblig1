@@ -12,7 +12,6 @@ public class BrikkeImpl implements Brikke {
 
     @Override
     public int getPosisjon() {
-
         return posisjon;
     }
 
