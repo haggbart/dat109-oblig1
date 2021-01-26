@@ -1,7 +1,6 @@
 package no.hvl.dat109.spiller;
 
 import no.hvl.dat109.Terning;
-import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.brett.Rute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,26 +19,27 @@ public class SpillerImpl implements Spiller {
     }
 
     //Oppdaterer posisjon på brikken og returnerer nye ruten
-    private Rute flyttBrikke(Brett brett, int posisjon) {
+    private Rute flyttBrikke(int posisjon) {
         log.debug("{} flytter brikke", this);
         brikke.setPosisjon(posisjon);
-        return brett.getRute(posisjon);
+        return brikke.getRute(posisjon);
     }
 
     @Override
-    public Rute spillTur (Terning terning, Brett brett) {
+    public Rute spillTur (Terning terning) {
         int terningkast = kastTerning(terning);
+        int posisjon = brikke.getPosisjon();
 
         if (trenger6 && terningkast != 6) {
             log.debug("{} må trille 6 for å flytte", this);
-            return brett.getRute(brikke.getPosisjon());
+            return brikke.getRute(posisjon);
         }
 
-        int nyPos = brikke.getPosisjon() + terningkast;
+        int nyPos = posisjon + terningkast;
         if (nyPos > 100) {
             log.debug("{} : flytting avvist (over 100)", this);
         } else {
-            return flyttBrikke(brett, nyPos);
+            return flyttBrikke(nyPos);
         }
 
         return null;
