@@ -11,7 +11,7 @@ public class StigespillImpl implements Stigespill {
 
 
     @Override
-    public void start(int antallSpillere, int antallRuter) {
+    public void start() {
         Spiller spiller = spillere[1];
     }
 }
