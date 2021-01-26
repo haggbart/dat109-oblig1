@@ -29,4 +29,9 @@ public class SpillerImpl implements Spiller {
         brikke.setPosisjon(posisjon);
         return brett.getRute(posisjon);
     }
+
+    @Override
+    public String toString() {
+        return this.hashCode() + "";
+    }
 }

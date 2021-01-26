@@ -28,6 +28,7 @@
         <java.version>15</java.version>
         <logback.version>1.2.3</logback.version>
         <junit.version>RELEASE</junit.version>
+        <faker.version>1.0.2</faker.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,6 +50,13 @@
                 <artifactId>junit-jupiter</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <!-- faker -->
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>${faker.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
