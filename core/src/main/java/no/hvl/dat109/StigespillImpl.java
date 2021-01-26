@@ -1,7 +1,6 @@
 package no.hvl.dat109;
 
 import no.hvl.dat109.spiller.Spiller;
-import no.hvl.dat109.brett.Brett;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,13 +11,25 @@ public class StigespillImpl implements Stigespill {
 
     private Terning terning;
     private Koe koe;
-    private Brett brett;
 
+    public StigespillImpl(int antallSpillere) {
+
+        terning = new TerningImpl();
+        koe = new KoeQueue(antallSpillere);
+    }
 
     @Override
     public void start() {
         log.debug("Spill startet");
-        Spiller spiller = koe.neste();
-        spiller.spillTur(terning);
+
+        for (int i = 0; i < 100; i++) {
+            Spiller spiller = koe.neste();
+            spiller.spillTur(terning);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

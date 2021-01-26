@@ -12,6 +12,12 @@ public class SpillerImpl implements Spiller {
     private Brikke brikke;
     private boolean trenger6;
 
+    public SpillerImpl() {
+
+     brikke = new BrikkeImpl();
+     trenger6 = false;
+    }
+
     //Triller terning
     private int kastTerning(Terning terning) {
         log.debug("{} kaster terning", this);
