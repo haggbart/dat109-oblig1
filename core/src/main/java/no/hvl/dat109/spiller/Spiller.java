@@ -8,4 +8,5 @@ public interface Spiller {
 
     int kastTerning(Terning terning);
     Rute flyttBrikke(Brett brett, int posisjon);
+    Rute spillTur(Terning terning, Brett brett);
 }

@@ -11,27 +11,39 @@ public class SpillerImpl implements Spiller {
     private static final Logger log = LoggerFactory.getLogger(Spiller.class);
 
     private Brikke brikke;
+    private boolean trenger6;
 
     //Triller terning
     @Override
     public int kastTerning(Terning terning) {
-
         log.debug("{} kaster terning", this);
         return terning.trill();
     }
 
-
     //Oppdaterer posisjon på brikken og returnerer nye ruten
     @Override
     public Rute flyttBrikke(Brett brett, int posisjon) {
-
         log.debug("{} flytter brikke", this);
         brikke.setPosisjon(posisjon);
         return brett.getRute(posisjon);
     }
 
     @Override
-    public String toString() {
-        return this.hashCode() + "";
+    public Rute spillTur (Terning terning, Brett brett) {
+        int terningkast = kastTerning(terning);
+
+        if (trenger6 && terningkast != 6) {
+            log.debug("{} må trille 6 for å flytte", this);
+            return brett.getRute(brikke.getPosisjon());
+        }
+
+        int nyPos = brikke.getPosisjon() + terningkast;
+        if (nyPos > 100) {
+            log.debug("{} : flytting avvist (over 100)", this);
+        } else {
+            return flyttBrikke(brett, nyPos);
+        }
+
+        return null;
     }
 }

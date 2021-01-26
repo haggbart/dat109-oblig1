@@ -11,13 +11,15 @@ public class StigespillImpl implements Stigespill {
 
 
     private Terning terning;
-    private Koe koe;
+    private Spiller[] spillere;
     private Brett brett;
 
 
     @Override
     public void start() {
         log.debug("Spill startet");
-        Spiller spiller = koe.neste();
+        Spiller spiller = spillere[1];
+        spiller.spillTur(terning, brett);
+
     }
 }
