@@ -19,7 +19,6 @@ public class StigespillImpl implements Stigespill {
     public void start() {
         log.debug("Spill startet");
         Spiller spiller = spillere[1];
-        spiller.spillTur(terning, brett);
-
+        spiller.spillTur(terning);
     }
 }
