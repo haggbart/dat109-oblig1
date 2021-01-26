@@ -14,15 +14,13 @@ public class SpillerImpl implements Spiller {
     private boolean trenger6;
 
     //Triller terning
-    @Override
-    public int kastTerning(Terning terning) {
+    private int kastTerning(Terning terning) {
         log.debug("{} kaster terning", this);
         return terning.trill();
     }
 
     //Oppdaterer posisjon på brikken og returnerer nye ruten
-    @Override
-    public Rute flyttBrikke(Brett brett, int posisjon) {
+    private Rute flyttBrikke(Brett brett, int posisjon) {
         log.debug("{} flytter brikke", this);
         brikke.setPosisjon(posisjon);
         return brett.getRute(posisjon);

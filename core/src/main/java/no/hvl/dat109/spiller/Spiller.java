@@ -6,7 +6,5 @@ import no.hvl.dat109.brett.Rute;
 
 public interface Spiller {
 
-    int kastTerning(Terning terning);
-    Rute flyttBrikke(Brett brett, int posisjon);
     Rute spillTur(Terning terning, Brett brett);
 }
