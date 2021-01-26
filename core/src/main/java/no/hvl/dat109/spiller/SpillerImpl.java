@@ -2,15 +2,19 @@ package no.hvl.dat109.spiller;
 
 import no.hvl.dat109.Terning;
 import no.hvl.dat109.brett.Rute;
+import no.hvl.dat109.brett.SpesialRute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static java.lang.System.exit;
 
 public class SpillerImpl implements Spiller {
 
     private static final Logger log = LoggerFactory.getLogger(Spiller.class);
 
-    private Brikke brikke;
-    private boolean trenger6;
+    private final Brikke brikke;
+    private final boolean trenger6;
+    private int terningTeller;
 
     public SpillerImpl() {
 
@@ -32,25 +36,42 @@ public class SpillerImpl implements Spiller {
         return brikke.getRute(posisjon);
     }
 
+
+
     @Override
-    public Rute spillTur (Terning terning) {
+    public void spillTur (Terning terning) {
+        // kaste terning
         int terningkast = kastTerning(terning);
         int posisjon = brikke.getPosisjon();
 
         if (trenger6 && terningkast != 6) {
             log.debug("{} må trille 6 for å flytte", this);
-            return brikke.getRute(posisjon);
         }
 
-        int nyPos = posisjon + terningkast;
-        if (nyPos > 100) {
+        // flytt brikke
+
+        if (posisjon > 100) {
             log.debug("{} : flytting avvist (over 100)", this);
-        } else {
-            return flyttBrikke(nyPos);
+            return;
         }
 
-        return null;
+
+        // sjekk om spesialrute
+        Rute rute = flyttBrikke(nyPos);
+
+        if (rute instanceof SpesialRute) {
+            SpesialRute spesialRute = ((SpesialRute) rute);
+            SpesialRute.Type type = spesialRute.getType();
+            log.debug("var en spesialrute av type: {}", type);
+            flyttBrikke(spesialRute.getLink());
+            exit(0);
+        }
     }
+
+    /*
+    spilltur:
+
+     */
 
     @Override
     public String toString() {

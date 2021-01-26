@@ -2,8 +2,8 @@ package no.hvl.dat109.brett;
 
 public class SpesialRuteImpl implements SpesialRute {
 
-    private Type type;
-    private int link;
+    private final Type type;
+    private final int link;
 
     public SpesialRuteImpl(Type type, int link) {
         this.type = type;

@@ -2,7 +2,7 @@ package no.hvl.dat109.brett;
 
 public class BrettImpl implements Brett {
 
-    private Rute[] ruter;
+    private final Rute[] ruter;
 
     public BrettImpl(){
         ruter = new Rute[101]; // 101 ruter, så index stemmer med rutenummer...
