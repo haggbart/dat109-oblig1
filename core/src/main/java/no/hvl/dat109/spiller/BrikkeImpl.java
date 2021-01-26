@@ -1,6 +1,7 @@
 package no.hvl.dat109.spiller;
 
 import no.hvl.dat109.brett.Brett;
+import no.hvl.dat109.brett.BrettImpl;
 import no.hvl.dat109.brett.Rute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,10 @@ public class BrikkeImpl implements Brikke {
     private final Brett brett;
 
     private int posisjon;
+
+    public BrikkeImpl() {
+        brett = new BrettImpl();
+    }
 
     @Override
     public int getPosisjon() {

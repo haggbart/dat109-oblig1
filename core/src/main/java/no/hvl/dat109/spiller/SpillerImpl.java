@@ -18,8 +18,8 @@ public class SpillerImpl implements Spiller {
 
     public SpillerImpl() {
 
-     brikke = new BrikkeImpl();
-     trenger6 = false;
+        brikke = new BrikkeImpl();
+        trenger6 = false;
     }
 
     //Triller terning
@@ -37,9 +37,8 @@ public class SpillerImpl implements Spiller {
     }
 
 
-
     @Override
-    public void spillTur (Terning terning) {
+    public void spillTur(Terning terning) {
         // kaste terning
         int terningkast = kastTerning(terning);
         int posisjon = brikke.getPosisjon();
@@ -57,7 +56,7 @@ public class SpillerImpl implements Spiller {
 
 
         // sjekk om spesialrute
-        Rute rute = flyttBrikke(nyPos);
+        Rute rute = flyttBrikke(terningkast + posisjon);
 
         if (rute instanceof SpesialRute) {
             SpesialRute spesialRute = ((SpesialRute) rute);
