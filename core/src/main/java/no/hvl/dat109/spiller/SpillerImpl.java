@@ -8,13 +8,22 @@ public class SpillerImpl implements Spiller {
 
     private Brikke brikke;
 
+
+    //Triller terning
     @Override
     public int kastTerning(Terning terning) {
-        return 0;
+
+        return terning.trill();
+
     }
 
+
+    //Oppdaterer posisjon på brikken og returnerer nye ruten
     @Override
     public Rute flyttBrikke(Brett brett, int posisjon) {
-        return null;
+
+        brikke.setPosisjon(posisjon);
+        return brett.getRute(posisjon);
+
     }
 }

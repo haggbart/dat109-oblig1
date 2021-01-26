@@ -8,6 +8,8 @@ public class TerningImpl implements Terning {
 
     @Override
     public int trill() {
-        return 0;
+
+        return random.nextInt(6) + 1;
+
     }
 }
