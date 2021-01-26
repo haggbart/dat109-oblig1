@@ -3,18 +3,21 @@ package no.hvl.dat109.spiller;
 import no.hvl.dat109.Terning;
 import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.brett.Rute;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SpillerImpl implements Spiller {
 
-    private Brikke brikke;
+    private static final Logger log = LoggerFactory.getLogger(Spiller.class);
 
+    private Brikke brikke;
 
     //Triller terning
     @Override
     public int kastTerning(Terning terning) {
 
+        log.debug("{} kaster terning", this);
         return terning.trill();
-
     }
 
 
@@ -22,8 +25,8 @@ public class SpillerImpl implements Spiller {
     @Override
     public Rute flyttBrikke(Brett brett, int posisjon) {
 
+        log.debug("{} flytter brikke", this);
         brikke.setPosisjon(posisjon);
         return brett.getRute(posisjon);
-
     }
 }
