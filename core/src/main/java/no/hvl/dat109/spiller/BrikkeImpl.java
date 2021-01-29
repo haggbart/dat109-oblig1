@@ -1,5 +1,7 @@
 package no.hvl.dat109.spiller;
 
+import lombok.Getter;
+import lombok.Setter;
 import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.brett.BrettImpl;
 import no.hvl.dat109.brett.Rute;
