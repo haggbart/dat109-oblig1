@@ -1,24 +1,19 @@
 package no.hvl.dat109.spiller;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.brett.BrettImpl;
 import no.hvl.dat109.brett.Rute;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Slf4j
 public class BrikkeImpl implements Brikke {
 
-
-    private static final Logger log = LoggerFactory.getLogger(Brikke.class);
-
     private final Brett brett;
-
     private int posisjon;
 
     public BrikkeImpl() {
         brett = new BrettImpl();
+        posisjon = 1;
     }
 
     @Override
@@ -28,7 +23,6 @@ public class BrikkeImpl implements Brikke {
 
     @Override
     public void setPosisjon(int posisjon) {
-
         log.debug("posisjon satt til {}", posisjon);
         this.posisjon = posisjon;
     }

@@ -46,6 +46,11 @@
                 <artifactId>javafaker</artifactId>
                 <version>${faker.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
