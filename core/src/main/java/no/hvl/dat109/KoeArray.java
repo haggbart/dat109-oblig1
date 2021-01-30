@@ -23,7 +23,8 @@ public class KoeArray implements Koe {
 
     @Override
     public Spiller neste() {
-        Spiller spiller = spillere[teller = (teller + 1) % (spillere.length -1)];
+        System.out.println(spillere.length);
+        Spiller spiller = spillere[teller = (teller + 1) % (spillere.length)];
         log.debug("neste spiller: {}", spiller);
         return spiller;
     }

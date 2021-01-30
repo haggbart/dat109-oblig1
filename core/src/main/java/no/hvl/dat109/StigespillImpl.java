@@ -1,17 +1,22 @@
 package no.hvl.dat109;
 
 import lombok.extern.slf4j.Slf4j;
+import no.hvl.dat109.config.AntallSpillere;
 import no.hvl.dat109.spiller.Spiller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class StigespillImpl implements Stigespill {
 
     private final Terning terning;
     private final Koe koe;
 
-    public StigespillImpl(int antallSpillere) {
-        terning = new TerningImpl();
-        koe = new KoeQueue(antallSpillere);
+    @Autowired
+    public StigespillImpl(Terning terning, @AntallSpillere int antallSpillere) {
+        this.terning = terning;
+        koe = new KoeArray(antallSpillere);
     }
 
     @Override
