@@ -1,43 +1,27 @@
 package no.hvl.dat109.spiller;
 
+import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.Terning;
 import no.hvl.dat109.brett.Rute;
 import no.hvl.dat109.brett.SpesialRute;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import static java.lang.System.exit;
-
+@Slf4j
 public class SpillerImpl implements Spiller {
 
     private final Brikke brikke;
-    private final boolean trenger6;
+    private boolean trenger6;
     private int terningTeller;
+    private boolean harVunnet;
 
     public SpillerImpl() {
-
         brikke = new BrikkeImpl();
         trenger6 = false;
+        harVunnet = false;
+        terningTeller = 0;
     }
-
-    //Triller terning
-    private int kastTerning(Terning terning) {
-        log.debug("{} kaster terning", this);
-        return terning.trill();
-    }
-
-    //Oppdaterer posisjon på brikken og returnerer nye ruten
-
-    private Rute flyttBrikke(int posisjon) {
-        log.debug("{} flytter brikke", this);
-        brikke.setPosisjon(posisjon);
-        return brikke.getRute(posisjon);
-    }
-
 
     @Override
     public void spillTur(Terning terning) {
-        // kaste terning
         int terningkast = kastTerning(terning);
 
         if (terningkast >= 1) {

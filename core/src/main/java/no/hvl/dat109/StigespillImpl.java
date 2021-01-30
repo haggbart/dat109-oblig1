@@ -1,19 +1,15 @@
 package no.hvl.dat109;
 
+import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.spiller.Spiller;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
+@Slf4j
 public class StigespillImpl implements Stigespill {
 
-    private static final Logger log = LoggerFactory.getLogger(Stigespill.class);
-
-
-    private Terning terning;
-    private Koe koe;
+    private final Terning terning;
+    private final Koe koe;
 
     public StigespillImpl(int antallSpillere) {
-
         terning = new TerningImpl();
         koe = new KoeQueue(antallSpillere);
     }
@@ -21,15 +17,18 @@ public class StigespillImpl implements Stigespill {
     @Override
     public void start() {
         log.debug("Spill startet");
+        Spiller spiller;
 
-        for (int i = 0; i < 100; i++) {
-            Spiller spiller = koe.neste();
+         do {
+            spiller = koe.neste();
             spiller.spillTur(terning);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        } while (!spiller.harVunnet());
+
+        log.debug("Spiller {} har vunnet spillet!", spiller);
     }
 }

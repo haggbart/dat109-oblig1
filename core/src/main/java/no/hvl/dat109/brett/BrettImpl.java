@@ -4,10 +4,14 @@ public class BrettImpl implements Brett {
 
     private final Rute[] ruter;
 
+    /**
+     * Konstruktøren oppretter eit brett med spesialruter allereie spesifisert i koden.
+     * Slik får vi same spillbrett kvar gong.
+     * Opprettar tabell med 101 indeksar og brukar ikkje indeks [0] slik at rutenummer stemmer overens med indeks.
+     */
     public BrettImpl(){
-        ruter = new Rute[101]; // 101 ruter, så index stemmer med rutenummer...
+        ruter = new Rute[101];
 
-        // hardkodet brett med faste stigeruter/slangeruter
         SpesialRute.Type stige = SpesialRute.Type.STIGE;
         ruter[2] = new SpesialRuteImpl(stige, 37);
         ruter[7] = new SpesialRuteImpl(stige, 28);
