@@ -27,6 +27,7 @@ public class StigespillImpl implements Stigespill {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            log.debug("-------------------------------");
         } while (!spiller.harVunnet());
 
         log.debug("Spiller {} har vunnet spillet!", spiller);

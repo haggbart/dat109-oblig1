@@ -33,7 +33,6 @@ public class BrettImpl implements Brett {
         ruter[93] = new SpesialRuteImpl(slange, 74);
         ruter[96] = new SpesialRuteImpl(slange, 55);
         ruter[99] = new SpesialRuteImpl(slange, 78);
-
     }
 
     @Override

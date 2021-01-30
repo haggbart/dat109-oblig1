@@ -23,7 +23,6 @@ public class BrikkeImpl implements Brikke {
 
     @Override
     public void setPosisjon(int posisjon) {
-        log.debug("posisjon satt til {}", posisjon);
         this.posisjon = posisjon;
     }
 

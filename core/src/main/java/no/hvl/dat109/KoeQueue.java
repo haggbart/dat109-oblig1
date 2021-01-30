@@ -1,7 +1,7 @@
 package no.hvl.dat109;
 
 import no.hvl.dat109.spiller.Spiller;
-import no.hvl.dat109.spiller.SpillerImpl;
+import no.hvl.dat109.spiller.SpillerMedHjerne;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ public class KoeQueue implements Koe {
         spillere = new ArrayDeque<>(antallSpillere);
 
         for (int i = 0; i < antallSpillere; i++) {
-            spillere.add(new SpillerImpl());
+            spillere.add(new SpillerMedHjerne());
         }
 
         aktuellSpiller = spillere.remove();

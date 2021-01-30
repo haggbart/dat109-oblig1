@@ -10,7 +10,7 @@ public class TerningImpl implements Terning {
 
     @Override
     public int trill() {
-        int verdi = random.nextInt(6) + 1;
+        int verdi = random.nextInt(2) + 5;
         log.debug("terning trillet: verdi = {}", verdi);
         return verdi;
     }
