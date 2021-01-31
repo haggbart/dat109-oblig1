@@ -6,5 +6,4 @@ public interface Spill {
      * Starter spillet.
      */
     void start();
-
 }

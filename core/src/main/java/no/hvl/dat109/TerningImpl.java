@@ -35,10 +35,4 @@ public class TerningImpl implements Terning {
         TerningkastEvent terningkastEvent = new TerningkastEvent(this, terning);
         publisher.publishEvent(terningkastEvent);
     }
-
-//    public void publishCustomEvent(final String message) {
-//        System.out.println("Publishing custom event.");
-//        CustomSpringEvent customSpringEvent = new CustomSpringEvent(this, message);
-//        publisher.publishEvent(customSpringEvent);
-//    }
 }

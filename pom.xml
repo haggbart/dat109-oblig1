@@ -17,9 +17,9 @@
         <java.version>15</java.version>
         <logback.version>1.2.3</logback.version>
         <junit.version>RELEASE</junit.version>
-        <faker.version>1.0.2</faker.version>
         <lombok.version>1.18.16</lombok.version>
         <spring.version>5.3.3</spring.version>
+        <faker.version>1.0.2</faker.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -43,13 +43,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- faker -->
-            <dependency>
-                <groupId>com.github.javafaker</groupId>
-                <artifactId>javafaker</artifactId>
-                <version>${faker.version}</version>
-            </dependency>
-
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -58,15 +51,18 @@
             </dependency>
 
             <!-- spring -->
-            <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
 
-
-
+            <!-- faker -->
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>${faker.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

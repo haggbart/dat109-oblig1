@@ -13,7 +13,9 @@ import java.util.Locale;
 @Slf4j
 public class SpillerMedHjerne implements Spiller {
 
-    private static final Faker faker = new Faker(new Locale("no_NO"));
+    // == fields ==
+
+    private static final Faker faker = new Faker(new Locale("nb-NO"));
 
     private final ApplicationEventPublisher publisher;
     private final Hjerne hjerne;
@@ -21,12 +23,13 @@ public class SpillerMedHjerne implements Spiller {
     private final String navn;
 
 
+    // == constructors ==
+
     public SpillerMedHjerne(Brett brett, ApplicationEventPublisher publisher) {
         this.brikke = new BrikkeImpl(brett);
         this.publisher = publisher;
         this.navn = faker.name().firstName();
         hjerne = new Hjerne();
-
     }
 
     @Override
@@ -43,10 +46,9 @@ public class SpillerMedHjerne implements Spiller {
 
     private void flyttBrikke(int posisjon) {
         brikke.setPosisjon(posisjon);
-        publisher.publishEvent(new FlyttEvent(this, brikke));
         SpesialRute rute = (SpesialRute) brikke.getRute(posisjon);
+        publisher.publishEvent(new FlyttEvent(this, brikke, rute));
         if (rute != null) {
-            System.out.println("er spesial: " + rute.getLink());
             flyttBrikke(rute.getLink());
         }
     }

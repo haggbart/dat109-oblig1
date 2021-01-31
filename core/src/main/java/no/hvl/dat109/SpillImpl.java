@@ -22,7 +22,7 @@ public class SpillImpl implements Spill {
 
     @Autowired
     public SpillImpl(ApplicationEventPublisher publisher,
-                     Brett brett,
+                     @Qualifier("mapBrett") Brett brett,
                      Terning terning,
                      @Qualifier("arrayKoe") Koe koe,
                      @AntallSpillere int antallSpillere) {

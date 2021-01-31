@@ -13,7 +13,6 @@ public class ConsoleStigespill {
 
     private final Spill spill;
 
-
     @Autowired
     public ConsoleStigespill(Spill spill) {
         this.spill = spill;

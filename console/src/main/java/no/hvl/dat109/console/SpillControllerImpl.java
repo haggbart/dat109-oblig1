@@ -2,6 +2,7 @@ package no.hvl.dat109.console;
 
 import no.hvl.dat109.SpillController;
 import no.hvl.dat109.Terning;
+import no.hvl.dat109.brett.SpesialRute;
 import no.hvl.dat109.spiller.Brikke;
 import no.hvl.dat109.spiller.Spiller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,22 @@ public class SpillControllerImpl implements SpillController {
         this.console = console;
     }
 
+
+    // == hooks ==
+
+    @Override
     public synchronized void onTerningKastet(Terning terning) {
         console.print(String.format("%s trillet en %s", spiller, terning.getOyne()));
         sleep(1);
     }
 
     @Override
-    public void onBrikkeFlyttes(Brikke brikke) {
+    public void onBrikkeFlyttes(Brikke brikke, SpesialRute rute) {
         console.print(String.format("%s flytter til rute %d", spiller, brikke.getPosisjon()));
+        if (rute != null) {
+            sleep(2);
+            console.print(String.format("%s landet på en %s!", spiller, rute.getType().toString().toLowerCase()));
+        }
         sleep(2);
     }
 
