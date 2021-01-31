@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class KoeArray implements Koe {
+public class KoeImpl2 implements Koe {
 
     private int teller;
 

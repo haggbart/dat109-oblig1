@@ -6,11 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class MapBrett implements Brett {
+public class BrettImpl2 implements Brett {
 
     private final Map<Integer, Rute> ruter;
 
-    public MapBrett() {
+    public BrettImpl2() {
         this.ruter = new HashMap<>(100);
         genererSpesialruter();
     }

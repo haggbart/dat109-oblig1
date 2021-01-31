@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Queue;
 
 @Slf4j
-public class KoeQueue implements Koe {
+public class KoeImpl implements Koe {
 
     private Queue<Spiller> spillere;
     private Spiller aktuellSpiller;
