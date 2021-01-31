@@ -51,11 +51,6 @@ public class SpillImpl implements Spill {
             spiller = koe.neste();
             publisher.publishEvent(new MainEvent(this, spiller, false));
             spiller.spillTur(terning);
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             log.debug("-------------------------------");
         } while (!spiller.harVunnet());
         publisher.publishEvent(new MainEvent(this, spiller, true));

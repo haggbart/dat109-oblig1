@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HjerneImpl implements Hjerne {
 
-    int seksPaRad;
-    boolean maHaSeks;
+    private int seksPaRad;
+    private boolean maHaSeks;
 
     @Override
     public int hvorTil(int posisjon, int oyne) {

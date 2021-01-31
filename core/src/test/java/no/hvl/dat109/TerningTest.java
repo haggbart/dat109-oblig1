@@ -14,6 +14,7 @@ abstract class TerningTest {
 
     protected abstract Terning createInstance();
 
+
     @BeforeEach
     void setUp() {
         terning = createInstance();
