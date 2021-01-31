@@ -1,29 +1,26 @@
 package no.hvl.dat109.spiller;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.brett.Brett;
-import no.hvl.dat109.brett.BrettImpl;
 import no.hvl.dat109.brett.Rute;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class BrikkeImpl implements Brikke {
 
-    private final Brett brett;
+    @Getter
+    @Setter
     private int posisjon;
 
-    public BrikkeImpl() {
-        brett = new BrettImpl();
-        posisjon = 1;
-    }
+    private final Brett brett;
 
-    @Override
-    public int getPosisjon() {
-        return posisjon;
-    }
-
-    @Override
-    public void setPosisjon(int posisjon) {
-        this.posisjon = posisjon;
+    @Autowired
+    public BrikkeImpl(Brett brett) {
+        this.brett = brett;
     }
 
     public Rute getRute(int posisjon) {

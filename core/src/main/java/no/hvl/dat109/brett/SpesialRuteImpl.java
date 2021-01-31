@@ -1,5 +1,8 @@
 package no.hvl.dat109.brett;
 
+import lombok.Getter;
+
+@Getter
 public class SpesialRuteImpl implements SpesialRute {
 
     private final Type type;
@@ -8,15 +11,5 @@ public class SpesialRuteImpl implements SpesialRute {
     public SpesialRuteImpl(Type type, int link) {
         this.type = type;
         this.link = link;
-    }
-
-    @Override
-    public Type getType() {
-        return type;
-    }
-
-    @Override
-    public int getLink() {
-        return link;
     }
 }

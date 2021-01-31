@@ -9,4 +9,6 @@ public interface Koe {
      * @return den neste spelaren i køa
      */
     Spiller neste();
+
+    void setSpillere(Spiller[] spillere);
 }

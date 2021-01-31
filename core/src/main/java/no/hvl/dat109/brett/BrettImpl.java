@@ -1,5 +1,8 @@
 package no.hvl.dat109.brett;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BrettImpl implements Brett {
 
     private final Rute[] ruter;

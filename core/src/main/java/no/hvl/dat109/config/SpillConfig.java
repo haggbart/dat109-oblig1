@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = "no.hvl.dat109")
 @PropertySource("classpath:config/spill.properties")
-public class SpillKonfig {
+public class SpillConfig {
 
     // == fields ==
     @Value("${spill.antallSpillere:8}")

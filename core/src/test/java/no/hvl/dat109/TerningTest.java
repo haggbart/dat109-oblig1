@@ -3,9 +3,11 @@ package no.hvl.dat109;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.stereotype.Component;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Component
 abstract class TerningTest {
 
     private Terning terning;
