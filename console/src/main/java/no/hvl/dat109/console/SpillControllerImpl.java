@@ -24,7 +24,7 @@ public class SpillControllerImpl implements SpillController {
     // == hooks ==
 
     @Override
-    public synchronized void onTerningKastet(Terning terning) {
+    public void onTerningKastet(Terning terning) {
         console.print(String.format("%s trillet en %s", spiller, terning.getOyne()));
         sleep(1);
     }
