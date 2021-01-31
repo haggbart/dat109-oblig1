@@ -29,7 +29,7 @@ public class SpillerMedHjerne implements Spiller {
         this.brikke = new BrikkeImpl(brett);
         this.publisher = publisher;
         this.navn = faker.name().firstName();
-        hjerne = new Hjerne();
+        hjerne = new HjerneImpl();
     }
 
     @Override

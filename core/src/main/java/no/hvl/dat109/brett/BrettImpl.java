@@ -20,7 +20,7 @@ public class BrettImpl implements Brett {
         ruter[7] = new SpesialRuteImpl(stige, 28);
         ruter[12] = new SpesialRuteImpl(stige, 31);
         ruter[21] = new SpesialRuteImpl(stige, 85);
-        ruter[28] = new SpesialRuteImpl(stige, 47);
+        ruter[26] = new SpesialRuteImpl(stige, 47);
         ruter[41] = new SpesialRuteImpl(stige, 61);
         ruter[48] = new SpesialRuteImpl(stige, 66);
         ruter[50] = new SpesialRuteImpl(stige, 70);

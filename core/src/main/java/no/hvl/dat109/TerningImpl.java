@@ -31,6 +31,7 @@ public class TerningImpl implements Terning {
         onTerningKastet(this);
         return oyne;
     }
+
     private void onTerningKastet(Terning terning) {
         TerningkastEvent terningkastEvent = new TerningkastEvent(this, terning);
         publisher.publishEvent(terningkastEvent);
