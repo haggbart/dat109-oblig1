@@ -7,4 +7,6 @@ public interface Terning {
      * @return terningverdi
      */
     int trill();
+
+    int getOyne();
 }

@@ -23,7 +23,7 @@ abstract class BrikkeTest {
 
     @Test
     void setPosisjon() {
-        assertEquals(0, brikke.getPosisjon());
+        assertEquals(1, brikke.getPosisjon());
         brikke.setPosisjon(4);
         assertEquals(4, brikke.getPosisjon());
     }
@@ -31,7 +31,7 @@ abstract class BrikkeTest {
     @Test
     void getPosisjon() {
 
-        assertEquals(0, brikke.getPosisjon());
+        assertEquals(1, brikke.getPosisjon());
         brikke.setPosisjon(8);
         assertEquals(8, brikke.getPosisjon());
     }

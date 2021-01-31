@@ -1,29 +1,22 @@
 package no.hvl.dat109;
 
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.spiller.Spiller;
-import no.hvl.dat109.spiller.SpillerImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Slf4j
+@Component
 public class KoeArray implements Koe {
 
-    private final static Logger log = LoggerFactory.getLogger(Koe.class);
-
     private int teller;
-    private final Spiller[] spillere;
 
-    public KoeArray(int antallSpillere) {
-
-        spillere = new Spiller[antallSpillere];
-
-        for (int i = 0; i < antallSpillere; i++) {
-            spillere[i] = new SpillerImpl();
-        }
-    }
+    @Setter
+    private Spiller[] spillere;
 
     @Override
     public Spiller neste() {
-        Spiller spiller = spillere[teller = (teller + 1) % (spillere.length -1)];
+        Spiller spiller = spillere[teller = (teller + 1) % (spillere.length)];
         log.debug("neste spiller: {}", spiller);
         return spiller;
     }

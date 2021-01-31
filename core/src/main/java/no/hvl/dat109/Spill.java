@@ -1,10 +1,9 @@
 package no.hvl.dat109;
 
-public interface Stigespill {
+public interface Spill {
 
     /**
      * Starter spillet.
      */
     void start();
-
 }

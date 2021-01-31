@@ -4,6 +4,6 @@ public class BrikkeImplTest extends BrikkeTest {
 
     @Override
     protected Brikke createInstance() {
-        return new BrikkeImpl();
+        return new BrikkeImpl(null);
     }
 }
