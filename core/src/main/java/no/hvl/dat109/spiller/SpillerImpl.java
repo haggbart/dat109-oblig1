@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import java.util.Locale;
 
 @Slf4j
-public class SpillerMedHjerne implements Spiller {
+public class SpillerImpl implements Spiller {
 
     // == fields ==
 
@@ -25,7 +25,7 @@ public class SpillerMedHjerne implements Spiller {
 
     // == constructors ==
 
-    public SpillerMedHjerne(Brett brett, ApplicationEventPublisher publisher) {
+    public SpillerImpl(Brett brett, ApplicationEventPublisher publisher) {
         this.brikke = new BrikkeImpl(brett);
         this.publisher = publisher;
         this.navn = faker.name().firstName();

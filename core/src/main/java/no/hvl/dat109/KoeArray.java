@@ -6,7 +6,7 @@ import no.hvl.dat109.spiller.Spiller;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component("arrayKoe")
+@Component
 public class KoeArray implements Koe {
 
     private int teller;

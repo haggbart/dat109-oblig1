@@ -2,14 +2,12 @@ package no.hvl.dat109;
 
 import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.spiller.Spiller;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
 
 @Slf4j
-@Component
 public class KoeQueue implements Koe {
 
     private Queue<Spiller> spillere;

@@ -5,7 +5,7 @@ import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.config.AntallSpillere;
 import no.hvl.dat109.events.MainEvent;
 import no.hvl.dat109.spiller.Spiller;
-import no.hvl.dat109.spiller.SpillerMedHjerne;
+import no.hvl.dat109.spiller.SpillerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationEventPublisher;
@@ -24,7 +24,7 @@ public class SpillImpl implements Spill {
     public SpillImpl(ApplicationEventPublisher publisher,
                      @Qualifier("mapBrett") Brett brett,
                      Terning terning,
-                     @Qualifier("arrayKoe") Koe koe,
+                     Koe koe,
                      @AntallSpillere int antallSpillere) {
         this.publisher = publisher;
         this.brett = brett;
@@ -37,7 +37,7 @@ public class SpillImpl implements Spill {
     private void genererSpillere(int antallSpillere) {
         Spiller[] spillere = new Spiller[antallSpillere];
         for (int i = 0; i < antallSpillere; i++) {
-            spillere[i] = new SpillerMedHjerne(brett, publisher);
+            spillere[i] = new SpillerImpl(brett, publisher);
         }
         koe.setSpillere(spillere);
     }
