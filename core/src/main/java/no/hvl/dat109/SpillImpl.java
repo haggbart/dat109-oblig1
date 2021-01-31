@@ -7,7 +7,6 @@ import no.hvl.dat109.events.MainEvent;
 import no.hvl.dat109.spiller.Spiller;
 import no.hvl.dat109.spiller.SpillerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class SpillImpl implements Spill {
 
     @Autowired
     public SpillImpl(ApplicationEventPublisher publisher,
-                     @Qualifier("mapBrett") Brett brett,
+                     Brett brett,
                      Terning terning,
                      Koe koe,
                      @AntallSpillere int antallSpillere) {
@@ -49,11 +48,11 @@ public class SpillImpl implements Spill {
 
         do {
             spiller = koe.neste();
-            publisher.publishEvent(new MainEvent(this, spiller, false));
+            publisher.publishEvent(new MainEvent(this, spiller));
             spiller.spillTur(terning);
             log.debug("-------------------------------");
         } while (!spiller.harVunnet());
-        publisher.publishEvent(new MainEvent(this, spiller, true));
+        publisher.publishEvent(new MainEvent(this, spiller));
         log.info("Stigespillet er slutt");
     }
 }

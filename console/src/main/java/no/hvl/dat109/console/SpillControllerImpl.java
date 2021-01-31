@@ -3,7 +3,6 @@ package no.hvl.dat109.console;
 import no.hvl.dat109.SpillController;
 import no.hvl.dat109.Terning;
 import no.hvl.dat109.brett.SpesialRute;
-import no.hvl.dat109.spiller.Brikke;
 import no.hvl.dat109.spiller.Spiller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,13 +24,13 @@ public class SpillControllerImpl implements SpillController {
 
     @Override
     public void onTerningKastet(Terning terning) {
-        console.print(String.format("%s trillet en %s", spiller, terning.getOyne()));
+        console.print(String.format("%s trillet %s", spiller, terning.getOyne()));
         sleep(1);
     }
 
     @Override
-    public void onBrikkeFlyttes(Brikke brikke, SpesialRute rute) {
-        console.print(String.format("%s flytter til rute %d", spiller, brikke.getPosisjon()));
+    public void onBrikkeFlyttes(int posisjon, SpesialRute rute) {
+        console.print(String.format("%s flytter til rute %d", spiller, posisjon));
         if (rute != null) {
             sleep(2);
             console.print(String.format("%s landet på en %s!", spiller, rute.getType().toString().toLowerCase()));
@@ -50,7 +49,10 @@ public class SpillControllerImpl implements SpillController {
                 --------------------------
                                 
                                 
-                %s sin tur til å spille""", spiller));
+                
+                --------------------------               
+                 > %s sin tur til å spille 
+                --------------------------""", spiller));
         sleep(2);
     }
 

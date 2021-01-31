@@ -15,7 +15,7 @@ public class MainEvent extends ApplicationEvent {
      * @param source the object on which the event initially occurred or with
      *               which the event is associated (never {@code null})
      */
-    public MainEvent(Object source, Spiller spiller, boolean vunnet) {
+    public MainEvent(Object source, Spiller spiller) {
         super(source);
         this.spiller = spiller;
     }

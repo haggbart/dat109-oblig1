@@ -17,6 +17,6 @@ public class FlyttEventListener implements ApplicationListener<FlyttEvent> {
 
     @Override
     public void onApplicationEvent(FlyttEvent event) {
-        controller.onBrikkeFlyttes(event.getBrikke(), event.getRute());
+        controller.onBrikkeFlyttes(event.getPosisjon(), event.getRute());
     }
 }

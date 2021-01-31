@@ -14,7 +14,6 @@ import java.util.Locale;
 public class SpillerImpl implements Spiller {
 
     // == fields ==
-
     private static final Faker faker = new Faker(new Locale("nb-NO"));
 
     private final ApplicationEventPublisher publisher;
@@ -24,7 +23,6 @@ public class SpillerImpl implements Spiller {
 
 
     // == constructors ==
-
     public SpillerImpl(Brett brett, ApplicationEventPublisher publisher) {
         this.brikke = new BrikkeImpl(brett);
         this.publisher = publisher;
@@ -46,8 +44,8 @@ public class SpillerImpl implements Spiller {
 
     private void flyttBrikke(int posisjon) {
         brikke.setPosisjon(posisjon);
-        SpesialRute rute = (SpesialRute) brikke.getRute(posisjon);
-        publisher.publishEvent(new FlyttEvent(this, brikke, rute));
+        SpesialRute rute = (SpesialRute)brikke.getRute(posisjon);
+        publisher.publishEvent(new FlyttEvent(this, posisjon, rute));
         if (rute != null) {
             flyttBrikke(rute.getLink());
         }
