@@ -2,6 +2,9 @@ package no.hvl.dat109.brett;
 
 public interface Brett {
 
+    /**
+     * Posisjoner hvor stiger er lokalisert på brettet, tallet etter er ruten stigen er knyttet til.
+     */
     int[][] stiger = {
             {2, 37},
             {7, 28},
@@ -15,6 +18,9 @@ public interface Brett {
             {83, 97}
     };
 
+    /**
+     * Posisjoner hvor slanger er lokalisert på brettet, tallet etter er ruten slangen er knyttet til.
+     */
     int[][] slanger = {
             {35, 13},
             {38, 6},

@@ -8,5 +8,9 @@ public interface Terning {
      */
     int trill();
 
+    /**
+     *
+     * @return antall øyne på terningen
+     */
     int getOyne();
 }
