@@ -10,5 +10,9 @@ public interface Koe {
      */
     Spiller neste();
 
+    /**
+     *
+     * @param spillere spillerne som inngår i køen
+     */
     void setSpillere(Spiller[] spillere);
 }

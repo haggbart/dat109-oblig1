@@ -13,7 +13,7 @@ import java.util.Locale;
 @Slf4j
 public class SpillerImpl implements Spiller {
 
-    // == fields ==
+
     private static final Faker faker = new Faker(new Locale("nb-NO"));
 
     private final ApplicationEventPublisher publisher;
@@ -22,7 +22,6 @@ public class SpillerImpl implements Spiller {
     private final String navn;
 
 
-    // == constructors ==
     public SpillerImpl(Brett brett, ApplicationEventPublisher publisher) {
         this.brikke = new BrikkeImpl(brett);
         this.publisher = publisher;
