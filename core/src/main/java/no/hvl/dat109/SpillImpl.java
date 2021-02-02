@@ -48,11 +48,15 @@ public class SpillImpl implements Spill {
 
         do {
             spiller = koe.neste();
-            publisher.publishEvent(new MainEvent(this, spiller));
+            onMainEvent(spiller);
             spiller.spillTur(terning);
             log.debug("-------------------------------");
         } while (!spiller.harVunnet());
-        publisher.publishEvent(new MainEvent(this, spiller));
+        onMainEvent(spiller);
         log.info("Stigespillet er slutt");
+    }
+    
+    private void onMainEvent(Spiller spiller) {
+        publisher.publishEvent(new MainEvent(this, spiller));
     }
 }

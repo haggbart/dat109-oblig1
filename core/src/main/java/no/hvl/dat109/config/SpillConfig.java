@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 public class SpillConfig {
 
     // == fields ==
-    @Value("${spill.antallSpillere:8}")
+    @Value("${spill.antallSpillere:4}")
     private int antallSpillere;
 
     // == bean methods ==

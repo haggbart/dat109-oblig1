@@ -44,7 +44,7 @@ public class SpillerImpl implements Spiller {
     private void flyttBrikke(int posisjon) {
         brikke.setPosisjon(posisjon);
         SpesialRute rute = (SpesialRute)brikke.getRute(posisjon);
-        publisher.publishEvent(new FlyttEvent(this, posisjon, rute));
+        onBrikkeFlyttes(posisjon, rute);
         if (rute != null) {
             flyttBrikke(rute.getLink());
         }
@@ -52,6 +52,10 @@ public class SpillerImpl implements Spiller {
 
     private int kastTerning(Terning terning) {
         return terning.trill();
+    }
+
+    private void onBrikkeFlyttes(int posisjon, SpesialRute rute) {
+        publisher.publishEvent(new FlyttEvent(this, posisjon, rute));
     }
 
     @Override
