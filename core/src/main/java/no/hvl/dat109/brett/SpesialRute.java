@@ -16,9 +16,13 @@ public interface SpesialRute extends Rute {
      */
     Type getType();
 
+    void setType(Type type);
+
     /**
      * Link er assosiert med ruta som er i enden av stigen/slangen.
      * @return 'rutenummeret' til ruta
      */
     int getLink();
+
+    void setLink(int rute);
 }

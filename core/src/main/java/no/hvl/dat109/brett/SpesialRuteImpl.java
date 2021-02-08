@@ -1,15 +1,14 @@
 package no.hvl.dat109.brett;
 
 import lombok.Getter;
+import lombok.Setter;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-@Getter
+@Getter @Setter
+@Component @Scope("prototype")
 public class SpesialRuteImpl implements SpesialRute {
 
-    private final Type type;
-    private final int link;
-
-    public SpesialRuteImpl(Type type, int link) {
-        this.type = type;
-        this.link = link;
-    }
+    private Type type;
+    private int link;
 }
