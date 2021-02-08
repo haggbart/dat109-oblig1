@@ -1,12 +1,11 @@
 package no.hvl.dat109;
 
 import lombok.extern.slf4j.Slf4j;
-import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.config.AntallSpillere;
 import no.hvl.dat109.events.MainEvent;
 import no.hvl.dat109.spiller.Spiller;
-import no.hvl.dat109.spiller.SpillerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
@@ -14,19 +13,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpillImpl implements Spill {
 
+    private final ApplicationContext context;
     private final ApplicationEventPublisher publisher;
-    private final Brett brett;
     private final Terning terning;
     private final Koe koe;
 
     @Autowired
-    public SpillImpl(ApplicationEventPublisher publisher,
-                     Brett brett,
+    public SpillImpl(ApplicationContext context,
+                     ApplicationEventPublisher publisher,
                      Terning terning,
                      Koe koe,
                      @AntallSpillere int antallSpillere) {
+        this.context = context;
         this.publisher = publisher;
-        this.brett = brett;
         this.terning = terning;
         this.koe = koe;
 
@@ -36,7 +35,7 @@ public class SpillImpl implements Spill {
     private void genererSpillere(int antallSpillere) {
         Spiller[] spillere = new Spiller[antallSpillere];
         for (int i = 0; i < antallSpillere; i++) {
-            spillere[i] = new SpillerImpl(brett, publisher);
+            spillere[i] = context.getBean(Spiller.class);
         }
         koe.setSpillere(spillere);
     }

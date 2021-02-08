@@ -3,14 +3,16 @@ package no.hvl.dat109.spiller;
 import com.github.javafaker.Faker;
 import lombok.extern.slf4j.Slf4j;
 import no.hvl.dat109.Terning;
-import no.hvl.dat109.brett.Brett;
 import no.hvl.dat109.brett.SpesialRute;
 import no.hvl.dat109.events.FlyttEvent;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
 @Slf4j
+@Component @Scope("prototype")
 public class SpillerImpl implements Spiller {
 
 
@@ -22,11 +24,11 @@ public class SpillerImpl implements Spiller {
     private final String navn;
 
 
-    public SpillerImpl(Brett brett, ApplicationEventPublisher publisher) {
-        this.brikke = new BrikkeImpl(brett);
+    public SpillerImpl(ApplicationEventPublisher publisher, Hjerne hjerne, Brikke brikke) {
+        this.hjerne = hjerne;
+        this.brikke = brikke;
         this.publisher = publisher;
         this.navn = faker.name().firstName();
-        hjerne = new HjerneImpl();
     }
 
     @Override
